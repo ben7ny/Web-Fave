@@ -17,7 +17,6 @@ require_relative '../models/address_book'
        expect(book.entries.size).to eq(0)
      end
    end
-   
    describe "#add_entry" do
         it "adds only one entry to the address book" do
           book = AddressBook.new
