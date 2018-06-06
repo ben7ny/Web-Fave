@@ -40,6 +40,7 @@ require_relative '../models/address_book'
    #   it "removes an entry using the information of the entry" do
    #     book = AddressBook.new
    #     book.add_entry('Ada Lovelace', '010.012.1815', 'augusta.king@lovelace.com')
+   #     book.add_entry('Ada Lovelachhe', '010.012.181577', 'auuuugusta.king@lovelace.com')
    #
    #     name = 'Ada Lovelace'
    #     phone_number = '010.012.1815'
