@@ -63,6 +63,21 @@ require_relative '../models/address_book'
    end
 
    def create_entry
+     system "clear"
+     puts "New AddressBloc Entry"
+     # #12
+     print "Name: "
+     name = gets.chomp
+     print "Phone number: "
+     phone = gets.chomp
+     print "Email: "
+     email = gets.chomp
+
+     # #13
+     address_book.add_entry(name, phone, email)
+
+     system "clear"
+     puts "New entry created"
    end
 
    def search_entries
@@ -70,30 +85,31 @@ require_relative '../models/address_book'
 
    def read_csv
 
-     def entry_submenu(entry)
-     # #16
-     puts "n - next entry"
-     puts "d - delete entry"
-     puts "e - edit this entry"
-     puts "m - return to main menu"
+       def entry_submenu(entry)
+       # #16
+       puts "n - next entry"
+       puts "d - delete entry"
+       puts "e - edit this entry"
+       puts "m - return to main menu"
 
-     # #17
-     selection = gets.chomp
+       # #17
+       selection = gets.chomp
 
-     case selection
-     # #18
-       when "n"
-     # #19
-       when "d"
-       when "e"
-     # #20
-       when "m"
-         system "clear"
-         main_menu
-       else
-         system "clear"
-         puts "#{selection} is not a valid input"
-         entry_submenu(entry)
+       case selection
+       # #18
+         when "n"
+       # #19
+         when "d"
+         when "e"
+       # #20
+         when "m"
+           system "clear"
+           main_menu
+         else
+           system "clear"
+           puts "#{selection} is not a valid input"
+           entry_submenu(entry)
+       end
      end
    end
- end
+end

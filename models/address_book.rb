@@ -1,14 +1,5 @@
 require_relative 'entry'
 
-require_relative 'controllers/menu_controller'
-
-menu = MenuController.new
- # #5
- system "clear"
- puts "Welcome to AddressBloc!"
- # #6
- menu.main_menu
-
    class AddressBook
      attr_reader :entries
 
@@ -26,5 +17,18 @@ menu = MenuController.new
        index+= 1
      end
      entries.insert(index, Entry.new(name, phone_number, email))
+  end
+
+
+   def remove_entry(name, phone_number, email)
+    delete_entry = nil # we store here cuz of the loop
+
+    @entries.each do |entry|
+      if name == entry.name && phone_number == entry.phone_number && email == entry.email
+        delete_entry == entry
+      end
+    end
+    entry.delete(delete_entry) # delete mothed for array
    end
+
  end
