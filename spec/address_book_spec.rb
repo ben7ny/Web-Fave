@@ -106,4 +106,37 @@ require_relative '../models/address_book'
      end
    end
 
+   describe "#import_from_csv_2" do
+     it "imports the correct number of entries" do
+       # #3
+       book.import_from_csv_2("entries_2.csv")
+       book_size = book.entries.size
+
+       # Check the size of the entries in AddressBook
+       expect(book_size).to eq 3
+     end
+
+     it "imports the 1st entry" do
+       book.import_from_csv("entries_2.csv")
+       # Check the first entry
+       entry_one = book.entries[0]
+
+       # #5
+       check_entry(entry_one, "Adam", "516-567-5567", "adam@onemail.com")
+     end
+
+     it "imports the 2nd entry" do
+       book.import_from_csv("entries_2.csv")
+       # Check the second entry
+       entry_two = book.entries[1]
+       check_entry(entry_two, "Ben", "916-565-5700", "ben@dodomail.com")
+     end
+
+     it "imports the 3rd entry" do
+       book.import_from_csv("entries_2.csv")
+       # Check the third entry
+       entry_three = book.entries[2]
+       check_entry(entry_three, "Harold", "112-905-3008", "harold@blavamail.com")
+     end
+   end
 end
