@@ -57,6 +57,21 @@ require_relative '../models/address_book'
      end
    end
 
+describe "#nuke" do
+  it "should delete all entries" do
+    book.add_entry("Bob", "555-555-5415", "bob@blocmail.com")
+    book.add_entry("Sally", "555-555-4646", "sally@blocmail.com")
+    book.add_entry("Johnny", "555-444-5415", "jonii@blocmail.com")
+
+    book.nuke
+    expect(book.entries.size).to eq 0
+  end
+end
+
+
+
+
+
    # Test that AddressBook's .import_from_csv() method is working as expected
    describe "#import_from_csv" do
      it "imports the correct number of entries" do

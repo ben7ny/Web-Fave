@@ -7,6 +7,7 @@
      @address_book = AddressBook.new
    end
 
+
    def main_menu
      # #2
      puts "Main Menu - #{address_book.entries.count} entries"
@@ -15,7 +16,8 @@
      puts "3 - Search for an entry"
      puts "4 - Import entries from a CSV"
      puts "5 - View Entry n"
-     puts "6 - Exit"
+     puts "6 - Nuke all entries"
+     puts "7 - Exit"
      print "Enter your selection: "
 
      # #3
@@ -43,10 +45,13 @@
          entry_n_submenu
          main_menu
        when 6
+         system "clear"
+         @address_book.nuke
+         puts "All entries deleted!"
+         main_menu
+       when 7
          puts "Good-bye!"
-         # #8
          exit(0)
-       # #9
        else
          system "clear"
          puts "Sorry, that is not a valid input"
